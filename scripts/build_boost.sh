@@ -12,10 +12,14 @@ mkdir -p "${BUILD_DIR}"
 
 pushd "${BUILD_DIR}"
 
-cmake -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/boost" .. 
+cmake -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/boost" \
+      -DCMAKE_BUILD_TYPE=Release \
+      .. 
 
 make -j"${N_JOBS}"
 rm -rf "${INSTALL_DIR}/boost"
 make install/strip
+
+popd
 
 rm -rf "${BUILD_DIR}"
