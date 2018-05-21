@@ -11,8 +11,10 @@ pushd "${PROJECT_DIR}"
 #./scripts/build_gflags.sh
 #./scripts/build_glog.sh
 #./scripts/build_leveldb.sh
-./scripts/build_openblas.sh
-#./scripts/build_caffe.sh
+#./scripts/build_openblas.sh
+#./scripts/build_lmdb.sh
+#./scripts/build_protobuf.sh
+./scripts/build_caffe.sh
 
 popd
 

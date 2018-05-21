@@ -5,16 +5,21 @@ set -eu
 . "$(dirname "$0")/../config.sh"
 
 OPENBLAS_ROOT=${PROJECT_DIR}/openblas
+BUILD_DIR=${OPENBLAS_ROOT}/build
 
-pushd "${OPENBLAS_ROOT}"
+rm -rf "${BUILD_DIR}"
+mkdir -p "${BUILD_DIR}"
 
-make clean
-make -j"${N_JOBS}" \
-    libs
+pushd "${BUILD_DIR}"
 
+cmake -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/openblas" \
+      -DCMAKE_BUILD_TYPE=Release \
+      ..
+
+make -j"${N_JOBS}"
 rm -rf "${INSTALL_DIR}/openblas"
-make PREFIX="${INSTALL_DIR}/openblas" install
-
-make clean
+make install/strip
 
 popd
+
+rm -rf "${BUILD_DIR}"
