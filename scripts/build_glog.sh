@@ -15,8 +15,9 @@ pushd "${BUILD_DIR}"
 
 cmake -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/glog" \
       -DCMAKE_BUILD_TYPE=Release \
+      -DBUILD_SHARED_LIBS=ON \
       -DGFLAGS_INCLUDE_DIR="${GFLAGS_HOME}/include" \
-      -DGFLAGS_LIBRARY="${GFLAGS_HOME}/lib/libgflags.a" \
+      -DGFLAGS_LIBRARY="${GFLAGS_HOME}/lib/libgflags.so" \
       ..
 
 make -j"${N_JOBS}"

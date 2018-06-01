@@ -14,6 +14,7 @@ pushd "${PROJECT_DIR}"
 #./scripts/build_openblas.sh
 #./scripts/build_lmdb.sh
 #./scripts/build_protobuf.sh
+#./scripts/build_snappy.sh
 ./scripts/build_caffe.sh
 
 popd
